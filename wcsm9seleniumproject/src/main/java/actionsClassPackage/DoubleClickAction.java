@@ -21,8 +21,8 @@ public static void main(String[] args) throws InterruptedException {
 		driver.findElement(By.xpath("//a[text()='Double Click']")).click();
 		
 		WebElement target = driver.findElement(By.xpath("(//button[text()='Yes'])[1]"));
-		WebElement target1 = driver.findElement(By.xpath("(//button[text()='Yes'])[2]"));
-		WebElement target2 = driver.findElement(By.xpath("//button[text()='1']"));
+		WebElement target1 = driver.findElement(By.xpath("(//button[text()='No'])[2]"));
+		WebElement target2 = driver.findElement(By.xpath("//button[text()='5']"));
 		
 		Actions act = new Actions(driver);
 		act.doubleClick(target).perform();
