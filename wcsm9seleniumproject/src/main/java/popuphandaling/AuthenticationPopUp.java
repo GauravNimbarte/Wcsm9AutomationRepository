@@ -19,7 +19,8 @@ public class AuthenticationPopUp {
 		driver.findElement(By.xpath("//section[text()='Authentication']")).click();
 		driver.findElement(By.xpath("//a[text()='Login']")).click();
 		Thread.sleep(2000);
-		//driver.switchTo().window("https://basic-auth-git-main-shashis-projects-4fa03ca5.vercel.app/");
+		//driver
+		driver.get("https://basic-auth-git-main-shashis-projects-4fa03ca5.vercel.app/");
 		 Alert authe = driver.switchTo().alert();
 		Thread.sleep(2000);
 		authe.sendKeys("Guru");

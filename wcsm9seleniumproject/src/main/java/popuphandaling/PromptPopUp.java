@@ -26,14 +26,15 @@ public class PromptPopUp {
 		
 		Alert pro = driver.switchTo().alert();
 		Thread.sleep(2000);
-		pro.sendKeys("no");
-		Thread.sleep(2000);
-	//	pro.accept();
 		String te = pro.getText();
 		System.out.println(te);
-		pro.dismiss();
+		pro.sendKeys("no");
+		Thread.sleep(2000);
+	    pro.accept();
+		
+		//pro.dismiss();
     	Thread.sleep(2000);
-		driver.quit();
+		
 		
 	}
 

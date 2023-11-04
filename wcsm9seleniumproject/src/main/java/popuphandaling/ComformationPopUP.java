@@ -22,12 +22,12 @@ public class ComformationPopUP {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//button[text()='Confirm Box']")).click();
 		
-		Alert al = driver.switchTo().alert();
+		Alert comfirm = driver.switchTo().alert();
 		Thread.sleep(2000);
 		//al.accept();
-		String ok = al.getText();
+		String ok = comfirm.getText();
 		System.out.println(ok);
-		al.dismiss();
+		comfirm.dismiss();
 		
 		
 		
