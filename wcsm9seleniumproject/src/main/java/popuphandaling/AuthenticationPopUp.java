@@ -1,6 +1,10 @@
 package popuphandaling;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.time.Duration;
+import java.util.Set;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -8,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class AuthenticationPopUp {
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, AWTException {
 		
 		WebDriver 	driver=new ChromeDriver();
 		driver.manage().window().maximize();
@@ -17,18 +21,72 @@ public class AuthenticationPopUp {
 		
 		driver.findElement(By.xpath("//section[text()='Popups']")).click();
 		driver.findElement(By.xpath("//section[text()='Authentication']")).click();
-		driver.findElement(By.xpath("//a[text()='Login']")).click();
+		
+		//address of authetication page window
+		String authenticationpage = driver.getWindowHandle();
+				Thread.sleep(2000);
+		driver.findElement(By.partialLinkText("Login")).click();
 		Thread.sleep(2000);
-		//driver
-		driver.get("https://basic-auth-git-main-shashis-projects-4fa03ca5.vercel.app/");
-		 Alert authe = driver.switchTo().alert();
+		//get the adress of all present window
+		
+		Set<String> allwindow = driver.getWindowHandles();
+		
+		//shift control to authentication pop up
+		for(String wh:allwindow)
+		{
+			if(!authenticationpage.equals(wh))
+				
+			{
+				driver.switchTo().window(wh);
+				
+			}
+			
+			
+		}
 		Thread.sleep(2000);
-		authe.sendKeys("Guru");
-		authe.sendKeys("12345667");
-		authe.accept();
-		Thread.sleep(2000);
+		
+		handale_authentication_popup();
+	
+		//handale authe popup
+							
+	}
+	
+	public static void handale_authentication_popup() throws AWTException, InterruptedException
+	{
+		Robot robot = new Robot();
+		robot.keyPress(KeyEvent.VK_A);
+		robot.keyPress(KeyEvent.VK_D);
+		robot.keyPress(KeyEvent.VK_M);
+		robot.keyPress(KeyEvent.VK_I);
+		robot.keyPress(KeyEvent.VK_N);
+		
+	
+		
+		robot.keyPress(KeyEvent.VK_TAB);
+		robot.keyRelease(KeyEvent.VK_TAB);
+		
+	
+		
+		robot.keyPress(KeyEvent.VK_A);
+		robot.keyPress(KeyEvent.VK_D);
+		robot.keyPress(KeyEvent.VK_M);
+		robot.keyPress(KeyEvent.VK_I);
+		robot.keyPress(KeyEvent.VK_N);
+		
+		
+		
+		robot.keyPress(KeyEvent.VK_TAB);
+		robot.keyRelease(KeyEvent.VK_TAB);
+		
+		
+		
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+		
+	}
+		
 		
 		
 	}
 
-}
+
