@@ -22,5 +22,6 @@ public class ValidLoginTC {
 		 driver.findElement(By.name("pwd")).sendKeys(pwdData);
 		 driver.findElement(By.id("loginButton")).click();
 	}
+	
 
 }
