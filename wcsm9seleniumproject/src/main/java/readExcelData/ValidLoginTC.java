@@ -16,8 +16,10 @@ public class ValidLoginTC {
 		driver.get("http://127.0.0.1/login.do");
 		
 		Flib flib = new Flib();
+		
 		String usnData = flib.readExcelData("./src/main/resources/ActiTimeTestData.xlsx","validcreds",1, 0);
 		String pwdData = flib.readExcelData("./src/main/resources/ActiTimeTestData.xlsx","validcreds",1, 1);
+		
 		 driver.findElement(By.name("username")).sendKeys(usnData);
 		 driver.findElement(By.name("pwd")).sendKeys(pwdData);
 		 driver.findElement(By.id("loginButton")).click();
